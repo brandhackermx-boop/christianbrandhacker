@@ -40,10 +40,10 @@
     .hero-eyebrow::after{content:'';display:block;width:36px;height:1px;background:var(--lime)}
     .hero-q{font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.12;color:#fff;letter-spacing:-.025em;margin-bottom:20px}
     .hero-q .hl{color:var(--lime)}
-    .hero-sub{font-size:16px;color:#888;line-height:1.75;max-width:480px}
+    .hero-sub{font-size:18px;color:#888;line-height:1.75;max-width:480px}
     .hero-sub strong{color:var(--light)}
     .hero-name{margin-top:12px}
-    .hero-name h1{font-size:18px;font-weight:600;color:#fff}
+    .hero-name h1{font-size:20px;font-weight:600;color:#fff}
     .hero-name .role{font-family:'Space Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:.14em;text-transform:uppercase;margin-top:5px}
     .hero-ctas{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
     .btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#0A0A0A;font-weight:700;font-size:12px;letter-spacing:.07em;text-transform:uppercase;padding:13px 26px;border-radius:2px;transition:opacity .2s,transform .2s}
@@ -100,45 +100,58 @@
     .qc-tr{top:0;right:0;border-top:2px solid var(--lime);border-right:2px solid var(--lime)}
     .qc-bl{bottom:0;left:0;border-bottom:2px solid var(--lime);border-left:2px solid var(--lime)}
     .qc-br{bottom:0;right:0;border-bottom:2px solid var(--lime);border-right:2px solid var(--lime)}
-    .quien-txt p{font-size:15px;color:#888;line-height:1.8;margin-bottom:14px}
+    .quien-txt p{font-size:17px;color:#888;line-height:1.8;margin-bottom:14px}
     .quien-txt p strong{color:var(--light)}
     .creds-wrap{margin-top:24px;display:flex;flex-direction:column;gap:2px}
     .cred-row{background:var(--card);border:1px solid var(--border-w);border-radius:3px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start;transition:border-color .25s,transform .25s}
     .cred-row:hover{border-color:var(--lime);transform:translateX(4px)}
-    .cred-sym{color:var(--lime);font-family:'Space Mono',monospace;font-size:12px;flex-shrink:0;margin-top:2px}
-    .cred-row p{font-size:13px;color:#777;line-height:1.45}
-    .cred-row p strong{color:var(--light);font-weight:600;display:block;font-size:13px}
+    .cred-sym{color:var(--lime);font-family:'Space Mono',monospace;font-size:14px;flex-shrink:0;margin-top:2px}
+    .cred-row p{font-size:15px;color:#777;line-height:1.45}
+    .cred-row p strong{color:var(--light);font-weight:600;display:block;font-size:15px}
     .ai-badge{margin-top:20px;background:rgba(204,255,0,.05);border:1px solid var(--border);border-radius:4px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start}
     .ai-sym{font-family:'Space Mono',monospace;font-size:16px;color:var(--lime);flex-shrink:0}
     .ai-body strong{color:var(--lime);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:5px;font-family:'Space Mono',monospace}
-    .ai-body p{font-size:13px;color:#777;line-height:1.6}
+    .ai-body p{font-size:15px;color:#777;line-height:1.6}
 
     /* ── SERVICIOS ── */
     #servicios{background:var(--dark);border-top:1px solid var(--border)}
     .srv-head{max-width:540px;margin-bottom:56px}
-    .srv-head p{font-size:15px;color:#777;line-height:1.75;margin-top:12px}
+    .srv-head p{font-size:17px;color:#777;line-height:1.75;margin-top:12px}
     .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
-    .srv-item{background:var(--card);padding:30px 26px;transition:background .25s,transform .25s;cursor:default}
-    .srv-item:hover{background:rgba(204,255,0,.04);transform:translateY(-3px)}
-    .srv-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:.1em;margin-bottom:14px;display:block}
+    .srv-item{background:var(--card);padding:32px 28px;transition:background .3s,transform .3s,border-color .3s;cursor:default;border-bottom:3px solid transparent;position:relative;overflow:hidden}
+    .srv-item::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(204,255,0,.06) 0%,transparent 70%);opacity:0;transition:opacity .4s}
+    .srv-item:hover{background:rgba(204,255,0,.03);transform:translateY(-5px);border-bottom-color:var(--lime)}
+    .srv-item:hover::before{opacity:1}
+    .srv-item:hover .srv-icon svg{transform:scale(1.12) rotate(-6deg);filter:drop-shadow(0 0 8px rgba(204,255,0,.5))}
+    .srv-icon{margin-bottom:20px;display:block;width:52px;height:52px}
+    .srv-icon svg{transition:transform .35s cubic-bezier(.22,1,.36,1),filter .35s}
     .srv-item h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-.01em}
     .srv-item p{font-size:12px;color:#666;line-height:1.65}
+    /* Parallax layers */
+    .parallax-layer{position:absolute;pointer-events:none;will-change:transform}
 
     /* ── MODELO ── */
     #modelo{background:var(--lime);padding:80px 0}
-    .modelo-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .modelo-header{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:56px}
     .modelo-l .s-label{color:#0A0A0A;opacity:.55}
     .modelo-l .s-label span{color:#0A0A0A}
-    .modelo-l h2{color:#0A0A0A;font-size:clamp(24px,3vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.14;margin-bottom:16px}
-    .modelo-l p{font-size:15px;color:rgba(0,0,0,.6);line-height:1.75}
-    .modelo-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .m-col{background:rgba(0,0,0,.08);border-radius:4px;padding:24px 20px;transition:background .25s}
-    .m-col:hover{background:rgba(0,0,0,.13)}
-    .m-col-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:12px}
-    .m-col h4{font-size:15px;font-weight:700;color:#0A0A0A;margin-bottom:10px}
-    .m-col-items{display:flex;flex-direction:column;gap:7px}
-    .m-item{font-size:12px;color:rgba(0,0,0,.6);display:flex;gap:7px;align-items:flex-start;line-height:1.5}
-    .m-item::before{content:'◆';font-size:7px;color:#0A0A0A;flex-shrink:0;margin-top:4px}
+    .modelo-l h2{color:#0A0A0A;font-size:clamp(24px,3vw,42px);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:16px}
+    .modelo-l p{font-size:17px;color:rgba(0,0,0,.6);line-height:1.75}
+    .modelo-axis{display:flex;flex-direction:column;gap:12px}
+    .axis-card{background:rgba(0,0,0,.09);border-radius:4px;padding:24px 22px;transition:background .25s}
+    .axis-card:hover{background:rgba(0,0,0,.14)}
+    .axis-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#0A0A0A;font-weight:700;margin-bottom:6px}
+    .axis-sub{font-size:17px;font-weight:700;color:#0A0A0A;margin-bottom:8px}
+    .axis-desc{font-size:14px;color:rgba(0,0,0,.6);line-height:1.65;margin:0}
+    /* Grid componentes */
+    .modelo-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .mgrid-block{display:flex;flex-direction:column;gap:12px}
+    .mgrid-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.45);padding-bottom:10px;border-bottom:1px solid rgba(0,0,0,.15);margin-bottom:4px}
+    .mgrid-comp{background:rgba(0,0,0,.08);border-radius:4px;padding:20px 20px;display:flex;gap:16px;align-items:flex-start;transition:background .25s,transform .2s}
+    .mgrid-comp:hover{background:rgba(0,0,0,.14);transform:translateX(4px)}
+    .mc-num{font-family:'Space Mono',monospace;font-size:11px;color:rgba(0,0,0,.35);flex-shrink:0;margin-top:2px;letter-spacing:.05em}
+    .mc-body h4{font-size:16px;font-weight:700;color:#0A0A0A;margin-bottom:6px;line-height:1.2}
+    .mc-body p{font-size:14px;color:rgba(0,0,0,.6);line-height:1.6;margin:0}
 
     /* ── PROCESO ── */
     #proceso{background:var(--dark);border-top:1px solid var(--border)}
@@ -149,15 +162,15 @@
     .paso{padding:0 16px;text-align:center}
     .paso-n{width:52px;height:52px;border-radius:50%;background:var(--dark);border:2px solid var(--lime);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--lime);position:relative;z-index:1;transition:background .25s,transform .25s}
     .paso:hover .paso-n{background:var(--lime);color:#0A0A0A;transform:scale(1.1)}
-    .paso h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:8px}
-    .paso p{font-size:12px;color:#666;line-height:1.65}
+    .paso h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .paso p{font-size:14px;color:#666;line-height:1.65}
 
     /* ── CTA ── */
     #contacto{background:var(--black);border-top:1px solid var(--border);text-align:center}
     .cta-in{max-width:580px;margin:0 auto}
     .cta-in .s-label{justify-content:center}
     .cta-in h2{font-size:clamp(24px,3vw,40px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:14px;letter-spacing:-.02em}
-    .cta-in>p{font-size:15px;color:#777;line-height:1.8;margin-bottom:36px}
+    .cta-in>p{font-size:17px;color:#777;line-height:1.8;margin-bottom:36px}
     .cta-btns{display:flex;flex-direction:column;align-items:center;gap:12px}
     .btn-wa{display:inline-flex;align-items:center;gap:12px;background:var(--lime);color:#0A0A0A;font-weight:700;font-size:13px;letter-spacing:.07em;text-transform:uppercase;padding:15px 34px;border-radius:2px;transition:opacity .2s,transform .2s}
     .btn-wa:hover{opacity:.86;transform:translateY(-2px)}
@@ -170,7 +183,7 @@
     .cta-social-link:hover{border-color:var(--lime);color:var(--lime)}
     .cta-note{margin-top:40px;padding:20px 24px;background:var(--card);border:1px solid var(--border);border-radius:4px;text-align:left}
     .cta-note strong{display:block;color:var(--lime);font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
-    .cta-note p{font-size:13px;color:#666;line-height:1.6}
+    .cta-note p{font-size:15px;color:#666;line-height:1.6}
 
     /* ── FOOTER ── */
     footer{background:var(--black);border-top:1px solid var(--border);padding:32px 0}
@@ -178,7 +191,7 @@
     .foot-brand{font-family:'Space Mono',monospace;font-size:10px;color:#3a3a3a;letter-spacing:.1em;text-transform:uppercase}
     .foot-brand strong{color:var(--lime)}
     .foot-links{display:flex;gap:20px;list-style:none}
-    .foot-links a{font-size:11px;color:#3a3a3a;transition:color .2s}
+    .foot-links a{font-size:13px;color:#3a3a3a;transition:color .2s}
     .foot-links a:hover{color:var(--lime)}
     .foot-loc{font-size:10px;color:#2e2e2e;font-family:'Space Mono',monospace;letter-spacing:.06em}
 
@@ -202,14 +215,14 @@
 
     /* ── RESPONSIVE ── */
     @media(max-width:960px){
-      .hero-wrap,.quien-grid,.modelo-inner{grid-template-columns:1fr;gap:48px}
+      .hero-wrap,.quien-grid,.modelo-header{grid-template-columns:1fr;gap:48px}
       .hero-photo-wrap,.hero-rings{display:none}
       .srv-grid{grid-template-columns:1fr 1fr}
       .proc-steps{grid-template-columns:1fr 1fr;gap:40px}
       .proc-steps::before{display:none}
       .stats-inner{flex-wrap:wrap}
       .stat-item{flex:1 1 40%;border-bottom:1px solid rgba(0,0,0,.1)}
-      .modelo-cols{grid-template-columns:1fr}
+      .modelo-grid{grid-template-columns:1fr}
     }
     @media(max-width:600px){
       .container{padding:0 20px}
@@ -343,12 +356,75 @@
       <p>Estrategia antes de ejecución. Cada servicio está diseñado para construir una ventaja competitiva real — no para mantenerte ocupado.</p>
     </div>
     <div class="srv-grid reveal d1">
-      <div class="srv-item"><span class="srv-num">⊙ 01 /</span><h3>Estrategia de Marca</h3><p>Propuesta de valor diferenciada y posicionamiento en el mercado objetivo.</p></div>
-      <div class="srv-item"><span class="srv-num">⊙ 02 /</span><h3>Planeación de Marketing</h3><p>Plan con OKRs, KPIs y roadmap conectado a la estrategia de negocio.</p></div>
-      <div class="srv-item"><span class="srv-num">⊙ 03 /</span><h3>Posicionamiento</h3><p>Estrategia para ganar top of mind — que la marca sea la opción obvia.</p></div>
-      <div class="srv-item"><span class="srv-num">⊙ 04 /</span><h3>Brand Story y Voz</h3><p>Narrativa, tono y mensajes clave coherentes en todos los canales.</p></div>
-      <div class="srv-item"><span class="srv-num">⊙ 05 /</span><h3>Brand Value</h3><p>Percepción, recordación y lealtad como activos estratégicos medibles.</p></div>
-      <div class="srv-item"><span class="srv-num">⊙ 06 /</span><h3>Alineación de Equipo</h3><p>Agencias, equipo interno y proveedores ejecutando con el mismo norte.</p></div>
+      <div class="srv-item">
+        <span class="srv-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="22" stroke="#CCFF00" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="14" stroke="#CCFF00" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="6" fill="#CCFF00"/>
+            <line x1="4" y1="26" x2="48" y2="26" stroke="#CCFF00" stroke-width=".8" opacity=".3"/>
+            <line x1="26" y1="4" x2="26" y2="48" stroke="#CCFF00" stroke-width=".8" opacity=".3"/>
+          </svg>
+        </span>
+        <h3>Estrategia de Marca</h3><p>Propuesta de valor diferenciada y posicionamiento en el mercado objetivo.</p>
+      </div>
+      <div class="srv-item">
+        <span class="srv-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <rect x="6" y="6" width="16" height="16" stroke="#CCFF00" stroke-width="1.5"/>
+            <rect x="30" y="6" width="16" height="16" stroke="#CCFF00" stroke-width="1.5"/>
+            <rect x="6" y="30" width="16" height="16" stroke="#CCFF00" stroke-width="1.5"/>
+            <rect x="30" y="30" width="16" height="16" fill="#CCFF00" fill-opacity=".15" stroke="#CCFF00" stroke-width="1.5"/>
+            <line x1="38" y1="34" x2="38" y2="42" stroke="#CCFF00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="34" y1="38" x2="42" y2="38" stroke="#CCFF00" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <h3>Planeación de Marketing</h3><p>Plan con OKRs, KPIs y roadmap conectado a la estrategia de negocio.</p>
+      </div>
+      <div class="srv-item">
+        <span class="srv-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <line x1="8" y1="44" x2="44" y2="8" stroke="#CCFF00" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="26,8 44,8 44,26" stroke="#CCFF00" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="8" cy="44" r="4" fill="#CCFF00"/>
+          </svg>
+        </span>
+        <h3>Posicionamiento</h3><p>Estrategia para ganar top of mind — que la marca sea la opción obvia.</p>
+      </div>
+      <div class="srv-item">
+        <span class="srv-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <path d="M6 26 C14 14 20 38 26 26 C32 14 38 38 46 26" stroke="#CCFF00" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="6" cy="26" r="3" fill="#CCFF00"/>
+            <circle cx="46" cy="26" r="3" fill="#CCFF00"/>
+          </svg>
+        </span>
+        <h3>Brand Story y Voz</h3><p>Narrativa, tono y mensajes clave coherentes en todos los canales.</p>
+      </div>
+      <div class="srv-item">
+        <span class="srv-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <polygon points="26,4 48,26 26,48 4,26" stroke="#CCFF00" stroke-width="1.5" fill="rgba(204,255,0,.07)"/>
+            <polygon points="26,13 39,26 26,39 13,26" stroke="#CCFF00" stroke-width="1.5" fill="rgba(204,255,0,.12)"/>
+            <circle cx="26" cy="26" r="5" fill="#CCFF00"/>
+          </svg>
+        </span>
+        <h3>Brand Value</h3><p>Percepción, recordación y lealtad como activos estratégicos medibles.</p>
+      </div>
+      <div class="srv-item">
+        <span class="srv-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <line x1="26" y1="6" x2="26" y2="46" stroke="#CCFF00" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="6" y1="26" x2="46" y2="26" stroke="#CCFF00" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="26" cy="26" r="8" stroke="#CCFF00" stroke-width="1.5"/>
+            <circle cx="26" cy="8" r="3" fill="#CCFF00"/>
+            <circle cx="26" cy="44" r="3" fill="#CCFF00"/>
+            <circle cx="8" cy="26" r="3" fill="#CCFF00"/>
+            <circle cx="44" cy="26" r="3" fill="#CCFF00"/>
+          </svg>
+        </span>
+        <h3>Alineación de Equipo</h3><p>Agencias, equipo interno y proveedores ejecutando con el mismo norte.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -356,34 +432,72 @@
 <!-- MODELO -->
 <section id="modelo">
   <div class="container">
-    <div class="modelo-inner">
+    <!-- Header -->
+    <div class="modelo-header">
       <div class="modelo-l reveal-l">
         <svg width="40" height="40" viewBox="0 0 48 48" fill="none" style="margin-bottom:16px;opacity:.7">
           <path d="M24 24 C24 17 29 12 34 14 C40 17 40 26 34 31 C27 37 16 36 11 29 C6 22 9 11 17 7 C23 4 30 6 34 11" stroke="#0A0A0A" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
         <div class="s-label"><span>◆</span> Framework estratégico</div>
         <h2>Full Brand<br/>Hack Model<sup style="font-size:.65em">®</sup></h2>
-        <p>El framework que estructura toda intervención. Integra sustancia y expresión para construir un sistema coherente, medible y ejecutable.</p>
+        <p>El sistema que integra la sustancia de la marca con su expresión. Cada componente es una decisión estratégica que da coherencia al negocio — desde el propósito hasta la presencia visual.</p>
       </div>
-      <div class="modelo-cols reveal-r d1">
-        <div class="m-col">
-          <div class="m-col-label">⊙ El Por qué / El Quién</div>
-          <h4>Sustancia + Posicionamiento</h4>
-          <div class="m-col-items">
-            <div class="m-item">Propósito, visión y valores</div>
-            <div class="m-item">Audiencia y análisis competitivo</div>
-            <div class="m-item">Diferencial sostenible</div>
-            <div class="m-item">Propuesta de valor</div>
+      <div class="modelo-axis reveal-r d1">
+        <div class="axis-card axis-1">
+          <div class="axis-tag">Estrategia de Marca</div>
+          <div class="axis-sub">El Por qué / El Quién</div>
+          <p class="axis-desc">Define el porqué y el quién de la marca — su sustancia y su posicionamiento en el mercado.</p>
+        </div>
+        <div class="axis-card axis-2">
+          <div class="axis-tag">Expresión de Marca</div>
+          <div class="axis-sub">El Cómo / El Qué</div>
+          <p class="axis-desc">Define el cómo y el qué — la forma en que la marca se manifiesta ante su mercado.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Componentes -->
+    <div class="modelo-grid reveal d1">
+      <!-- Col 1: Estrategia -->
+      <div class="mgrid-block">
+        <div class="mgrid-label">⊙ Estrategia de Marca</div>
+        <div class="mgrid-comp">
+          <div class="mc-num">01</div>
+          <div class="mc-body">
+            <h4>Sustancia de la Marca</h4>
+            <p>Propósito, visión, misión y valores — la base que da coherencia a todas las decisiones de marca.</p>
           </div>
         </div>
-        <div class="m-col">
-          <div class="m-col-label">⊙ El Cómo / El Qué</div>
-          <h4>Personalidad + Comunicación</h4>
-          <div class="m-col-items">
-            <div class="m-item">Voz y carácter por canal</div>
-            <div class="m-item">Mensajes clave y storytelling</div>
-            <div class="m-item">Eslóganes y manifiesto</div>
-            <div class="m-item">Identidad visual</div>
+        <div class="mgrid-comp">
+          <div class="mc-num">02</div>
+          <div class="mc-body">
+            <h4>Estrategia de Posicionamiento</h4>
+            <p>Audiencia objetivo, análisis de competencia y diferencial competitivo sostenible.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Col 2: Expresión -->
+      <div class="mgrid-block">
+        <div class="mgrid-label">◆ Expresión de Marca</div>
+        <div class="mgrid-comp">
+          <div class="mc-num">03</div>
+          <div class="mc-body">
+            <h4>Personalidad de Marca</h4>
+            <p>Voz de marca — el carácter, el tono y la forma en que la marca se relaciona con su audiencia.</p>
+          </div>
+        </div>
+        <div class="mgrid-comp">
+          <div class="mc-num">04</div>
+          <div class="mc-body">
+            <h4>Comunicación de Marca</h4>
+            <p>Mensajes clave, sistema de storytelling y eslóganes — la narrativa que conecta con el mercado.</p>
+          </div>
+        </div>
+        <div class="mgrid-comp">
+          <div class="mc-num">05</div>
+          <div class="mc-body">
+            <h4>Expresión Visual</h4>
+            <p>Identidad de marca y presencia de marca — la capa visual que hace reconocible y recordable a la organización.</p>
           </div>
         </div>
       </div>
@@ -490,6 +604,22 @@ function typeLoop(){
   }
 }
 setTimeout(typeLoop,1400);
+
+// ── PARALLAX ──
+const parallaxEls = [
+  {el: document.querySelector('.hero-glow'), speed: 0.3},
+  {el: document.querySelector('.hack-watermark'), speed: 0.15},
+  {el: document.querySelector('.hero-rings'), speed: 0.2},
+];
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  parallaxEls.forEach(({el, speed}) => {
+    if(el) el.style.transform = `translate(-50%,-50%) translateY(${y * speed}px)`;
+  });
+  // hero glow parallax (no translate-50)
+  const g = document.querySelector('.hero-glow');
+  if(g) g.style.transform = `translateY(${y * 0.25}px)`;
+});
 
 // ── COUNTER ANIMATION ──
 function animateCounter(el){
